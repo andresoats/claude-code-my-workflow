@@ -6,7 +6,7 @@
      See the guide at docs/workflow-guide.html for full documentation. -->
 
 **Project:** [YOUR PROJECT NAME]
-**Institution:** [YOUR INSTITUTION]
+**Institution:** Stanford
 **Branch:** main
 
 ---

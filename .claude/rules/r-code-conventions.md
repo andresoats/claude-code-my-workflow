@@ -14,7 +14,7 @@ paths:
 ## 1. Reproducibility
 
 - `set.seed()` called ONCE at top (YYYYMMDD format)
-- All packages loaded at top via `library()` (not `require()`)
+- All packages loaded at top via `pacman()` (not `require()` or `library`)
 - All paths relative to repository root
 - `dir.create(..., recursive = TRUE)` for output directories
 
@@ -35,27 +35,31 @@ paths:
 
 ```r
 # --- Your institutional palette ---
-primary_blue  <- "#012169"
-primary_gold  <- "#f2a900"
-accent_gray   <- "#525252"
-positive_green <- "#15803d"
-negative_red  <- "#b91c1c"
+colours_custom_1_len6 <- c("#C3AE78","#026795","#25980D", "#F77F00","#344D33" , "#616161")
+colours_custom_2_len8 <- c("#2E5266","#E63946", "#F77F00", "#6B9BD1", "#665191", "#457B9D","#828282", "#FCBF49")
+
 ```
 
 ### Custom Theme
 ```r
-theme_custom <- function(base_size = 14) {
-  theme_minimal(base_size = base_size) +
-    theme(
-      plot.title = element_text(face = "bold", color = primary_blue),
-      legend.position = "bottom"
-    )
-}
+theme_custom <-  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, family = "Palatino", size = 10),
+    plot.subtitle = element_text(hjust = 0.5, family = "Palatino", size = 8),
+    axis.title.x = element_text(family = "Palatino", size = 12),
+    axis.title.y = element_text(family = "Palatino", size = 12),
+    axis.text = element_text(family = "Palatino"),
+    legend.title = element_text(family = "Palatino", size = 10),
+    legend.text = element_text(family = "Palatino", size = 10),
+    legend.position = "top",
+    strip.text = element_text(family = "Palatino", face = "bold"),
+    #aspect.ratio = 3/4
+  )
 ```
 
 ### Figure Dimensions for Beamer
 ```r
-ggsave(filepath, width = 12, height = 5, bg = "transparent")
+ggsave(filepath, width = 8, height = 4.5, bg = "transparent")
 ```
 
 ## 5. RDS Data Pattern

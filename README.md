@@ -1,5 +1,6 @@
 # My Claude Code Setup
 
 ```
-  git clone https://github.com/andresoats/claude-code-my-workflow.git my-project
+  git clone https://github.com/andresoats/claude-code-my-workflow.git my-projec
+  cd my-project
 ```

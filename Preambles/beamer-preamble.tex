@@ -1,0 +1,159 @@
+% beamer_preamble.tex
+% Beamer preamble (input file) — Econ 211b: Business Cycles
+% Based exactly on spec_robustness.tex (Andrés Oats García, Stanford)
+% Usage: \input{../preamble/beamer_preamble.tex} after \documentclass{beamer}
+% ────────────────────────────────────────────────────────────────────────────
+
+\usetheme[progressbar=frametitle, sectionpage=none, background=light]{metropolis}
+
+\usepackage{appendixnumberbeamer}
+\usepackage[scale=2]{ccicons}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{dateplot}
+\usepackage{changepage}
+\usepackage{xspace}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage{dsfont}
+\usepackage{booktabs,siunitx}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage[most]{tcolorbox}
+
+\usefonttheme{professionalfonts}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[OT1]{fontenc}
+\usepackage{mathpazo}
+\renewcommand{\sfdefault}{cmss}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, decorations.pathreplacing, shapes.geometric}
+
+% ── Frame title ──────────────────────────────────────────────────────────────
+\setbeamerfont{frametitle}{series=\bfseries}
+
+% ── Hyperlinks ────────────────────────────────────────────────────────────────
+\hypersetup{
+    citecolor = {Maroon},
+    linkcolor = {blue},
+    urlcolor  = {Maroon},
+}
+
+% ── Colors ────────────────────────────────────────────────────────────────────
+\definecolor{customnavy}{rgb}{0.0, 0.2, 0.3}
+\definecolor{customlightgrey}{HTML}{e8e6e6}
+\definecolor{customdarkgrey}{HTML}{636363}
+\definecolor{colorGold}{HTML}{C3AE78}
+\definecolor{colorNavy}{HTML}{026795}
+\definecolor{colorRed}{HTML}{E63946}
+\definecolor{colorOrange}{HTML}{F77F00}
+\definecolor{colorGreen}{HTML}{25980D}
+
+% ── Beamer color scheme ───────────────────────────────────────────────────────
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{frametitle}{bg=white,fg=customdarkgrey}
+\setbeamercolor{progress bar}{fg=white, bg=white}
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{itemize item}{fg=customdarkgrey}
+\setbeamercolor{itemize subitem}{fg=MidnightBlue}
+\setbeamercolor{enumerate item}{fg=MidnightBlue}
+\setbeamercolor{enumerate subitem}{fg=MidnightBlue}
+\setbeamercolor{button}{bg=white,fg=MidnightBlue}
+
+% ── Color text commands ───────────────────────────────────────────────────────
+\newcommand{\colboldor}[1]{\textcolor{orange}{\textbf{#1}}}
+\newcommand{\colboldred}[1]{\textcolor{BrickRed}{\textbf{#1}}}
+\newcommand{\colboldblue}[1]{\textcolor{MidnightBlue}{\textbf{#1}}}
+\newcommand{\colboldgreen}[1]{\textcolor{OliveGreen}{\textbf{#1}}}
+\newcommand{\colboldgrey}[1]{\textcolor{customdarkgrey}{\textbf{#1}}}
+\newcommand{\colboldngreen}[1]{\textcolor{SeaGreen}{\textbf{#1}}}
+\newcommand{\colorange}[1]{\textcolor{orange}{#1}}
+\newcommand{\colgrey}[1]{\textcolor{customdarkgrey}{#1}}
+\newcommand{\colblue}[1]{\textcolor{MidnightBlue}{{#1}}}
+\newcommand{\colngreen}[1]{\textcolor{SeaGreen}{#1}}
+\newcommand{\colnblue}[1]{\textcolor{SkyBlue}{#1}}
+\newcommand{\colnpink}[1]{\textcolor{Salmon}{#1}}
+\newcommand{\colred}[1]{\textcolor{BrickRed}{#1}}
+\newcommand{\colgreen}[1]{\textcolor{OliveGreen}{#1}}
+
+% ── Custom title page ─────────────────────────────────────────────────────────
+\makeatletter
+\setbeamertemplate{title page}{
+  \begin{centering}
+    \vbox{}
+    \vskip2em%
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+    \ifx\insertsubtitle\@empty\else
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+    \fi
+    \vskip1em%
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}
+    {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}
+    \vskip2em%
+  \end{centering}
+}
+\setbeamercolor{section title}{fg=customdarkgrey}
+\setbeamerfont{section title}{size=\Large,series=\bfseries}
+\makeatother
+
+% ── Custom tcolorbox environments for slides ───────────────────────────────────
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{keybox}[1][]{
+  enhanced, breakable,
+  colback=colorGold!15!white,
+  colframe=colorGold!70!black,
+  boxrule=0.7pt, arc=2pt,
+  left=5pt, right=5pt, top=3pt, bottom=3pt,
+  fontupper=\small,
+  #1
+}
+
+\newtcolorbox{intubox}[1][]{
+  enhanced, breakable,
+  colback=MidnightBlue!8!white,
+  colframe=MidnightBlue!50!black,
+  boxrule=0.7pt, arc=2pt,
+  left=5pt, right=5pt, top=3pt, bottom=3pt,
+  fontupper=\small,
+  #1
+}
+
+\newtcolorbox{warnbox}[1][]{
+  enhanced, breakable,
+  colback=BrickRed!8!white,
+  colframe=BrickRed!60!black,
+  boxrule=0.7pt, arc=2pt,
+  left=5pt, right=5pt, top=3pt, bottom=3pt,
+  fontupper=\small,
+  #1
+}
+
+\newtcolorbox{stepbox}[2][]{
+  enhanced, breakable,
+  colback=OliveGreen!8!white,
+  colframe=OliveGreen!50!black,
+  boxrule=0.7pt, arc=2pt,
+  left=5pt, right=5pt, top=3pt, bottom=3pt,
+  title={\textbf{Step #2}},
+  fonttitle=\small\bfseries,
+  coltitle=OliveGreen!50!black,
+  fontupper=\small,
+  #1
+}
+
+% ── Math macros ──────────────────────────────────────────────────────────────
+\newcommand{\Et}{\mathbb{E}_t}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\hatx}[1]{\hat{#1}}
+\newcommand{\stst}[1]{\bar{#1}}
+\renewcommand{\log}{\ln}
+\newcommand{\rbn}{r^n_t}
+\newcommand{\yn}{y^n_t}
+\newcommand{\MPK}{\mathrm{MPK}}
+\newcommand{\MPN}{\mathrm{MPN}}
